@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<main layout:fragment="content-layout">
+		<h1>hello world</h1>
+		<a th:href="@{/login}">Login</a>
+		<form th:action="@{/perform_logout}" method="POST">
+			<input type="submit" value="logout">
+		</form>
+	</main>
+
+</body>
+</html>
