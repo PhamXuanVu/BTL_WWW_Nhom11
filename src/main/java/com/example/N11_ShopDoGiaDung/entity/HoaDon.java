@@ -34,9 +34,9 @@ public class HoaDon implements Serializable {
 	@Column(nullable = false)
 	private Date ngayGiao;
 		
-//	@ManyToOne
-//	@JoinColumn(name = "nguoiDungId", nullable = false)
-//	private NguoiDung nguoiDung;
+	@ManyToOne
+	@JoinColumn(name = "nguoiDungId", nullable = false)
+	private NguoiDung nguoiDung;
 
 	public HoaDon(String id, Calendar ngayLap, TrangThai trangThai, Date ngayGiao) {
 		super();

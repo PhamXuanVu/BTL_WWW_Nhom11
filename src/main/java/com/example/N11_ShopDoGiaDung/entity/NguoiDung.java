@@ -2,6 +2,7 @@ package com.example.N11_ShopDoGiaDung.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,10 +34,24 @@ public class NguoiDung implements Serializable{
 	private User user;
 	
 	@OneToMany(mappedBy = "nguoiDung")
-	private HoaDon hoaDon;
+	private Set<HoaDon> hoaDons;
 	
-	@OneToMany(mappedBy = "nguoiDung")
+	@OneToOne(mappedBy = "nguoiDung")
 	private GioHang gioHang;
+
+	public NguoiDung(String id, String ten, Date ngaySinh, String sdt, Boolean gioiTinh, String anh, String diaChi, User user) {
+		this.id = id;
+		this.ten = ten;
+		this.ngaySinh = ngaySinh;
+		this.sdt = sdt;
+		this.gioiTinh = gioiTinh;
+		this.anh = anh;
+		this.diaChi = diaChi;
+		this.user = user;
+	}
+
+	public NguoiDung() {
+	}
 
 	public String getId() {
 		return id;
@@ -102,48 +117,19 @@ public class NguoiDung implements Serializable{
 		this.user = user;
 	}
 
-	public HoaDon getHoaDon() {
-		return hoaDon;
-	}
-
-	public void setHoaDon(HoaDon hoaDon) {
-		this.hoaDon = hoaDon;
-	}
-
-	public GioHang getGioHang() {
-		return gioHang;
-	}
-
-	public void setGioHang(GioHang gioHang) {
-		this.gioHang = gioHang;
-	}
-
-	public NguoiDung(String id, String ten, Date ngaySinh, String sdt, Boolean gioiTinh, String anh, String diaChi,
-			User user, HoaDon hoaDon, GioHang gioHang) {
-		super();
-		this.id = id;
-		this.ten = ten;
-		this.ngaySinh = ngaySinh;
-		this.sdt = sdt;
-		this.gioiTinh = gioiTinh;
-		this.anh = anh;
-		this.diaChi = diaChi;
-		this.user = user;
-		this.hoaDon = hoaDon;
-		this.gioHang = gioHang;
-	}
-
-	public NguoiDung() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public String toString() {
-		return "NguoiDung [id=" + id + ", ten=" + ten + ", ngaySinh=" + ngaySinh + ", sdt=" + sdt + ", gioiTinh="
-				+ gioiTinh + ", anh=" + anh + ", diaChi=" + diaChi + ", user=" + user + ", hoaDon=" + hoaDon
-				+ ", gioHang=" + gioHang + "]";
+		return "NguoiDung{" +
+				"id='" + id + '\'' +
+				", ten='" + ten + '\'' +
+				", ngaySinh=" + ngaySinh +
+				", sdt='" + sdt + '\'' +
+				", gioiTinh=" + gioiTinh +
+				", anh='" + anh + '\'' +
+				", diaChi='" + diaChi + '\'' +
+				", user=" + user +
+				", hoaDons=" + hoaDons +
+				", gioHang=" + gioHang +
+				'}';
 	}
-	
-	
 }
