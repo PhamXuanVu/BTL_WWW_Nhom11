@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout.html}">
+	layout:decorate="~{Main-layout.html}">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -9,7 +9,7 @@
 	
 	<img th:src="@{/img/img.png}" alt="adasda" />
 	
-	<main layout:fragment="content-layout">
+	<main layout:fragment="content" class="content">
 		<form th:action="@{\perform_login}" method="POST">
 			<p th:if="${param.error}">dang nhap khong thanh cong</p>
 			<p th:if="${param.logout}">Dang xuat thanh cong</p>
